@@ -1,0 +1,28 @@
+# ===================
+# TODO
+# ===================
+
+- how to handle when publish:ok but other fields are missing (it goes back to draft)
+
+- published but why the image remained in the preview directory? (5p2p)
+
+- automatically create a slug from title
+
+- create a list of scheduled posts in the -preview page-
+
+- make a _today.lock file to be used as a trigger to push the repo (functional for the scheduled posts)
+
+
+
+- be cool if "iblog" could be set automatically in a configuration process (rake)
+=> better than that, having a git clone of the thing as "bare" blog. Using rake
+   to initialize the whole thing.
+
+- simplify the publishing:
+=> one folder for draft posts
+=> one folder for images
+=> edit link for pull requests in the preview phase
+
+**EMAIL
+
+- send emails via mailgun instead of gmail (no password)

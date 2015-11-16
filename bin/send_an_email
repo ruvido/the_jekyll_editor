@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+
+require '/Users/ruvido/Dropbox/development/the_jekyll_editor/lib/the_jekyll_editor'
+
+markdown="""
+ciao **mamma**
+moh nun je la faccio
+
+# Titolone
+  
+## Titoletto
+
+
+Ancora bla *bla* bla
+"""
+
+recipients = 'ruvido@gmail.com'
+sender = 'Il matrimonio francescano <info@matrimoniofrancescano.it>'
+subject = 'Hello world!'
+
+notif=Notification.new('key-b3410345e54fc0c4f9165c427cffa3fc')
+notif.send(sender, recipients, subject, markdown)
