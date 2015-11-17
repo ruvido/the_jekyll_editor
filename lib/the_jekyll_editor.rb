@@ -11,12 +11,17 @@ require 'mailgun'
 # ======================================
 class Notification
 
-  def initialize(mailgun_key)
-    @mg_client = Mailgun::Client.new mailgun_key
+  def initialize()
+    @markdown_message = ''
   end
 
-  def send(sender, recipients, subject, markdown_message)
-    message=Redcarpet::Markdown.new(Redcarpet::Render::HTML.new).render(markdown_message)
+  def add(markdown_message)
+    @markdown_message = @markdown_message + markdown_message
+  end
+
+  def send(mailgun_key, sender, recipients, subject)
+    client = Mailgun::Client.new mailgun_key
+    message=Redcarpet::Markdown.new(Redcarpet::Render::HTML.new).render(@markdown_message)
 
     message_params = {:from    => sender,  
                       :to      => recipients,
@@ -24,7 +29,7 @@ class Notification
                       :html    => message}
                     # :text    => 'It is really easy to send a message!'}
 
-    @mg_client.send_message "posta.5p2p.it", message_params
+    client.send_message "posta.5p2p.it", message_params
   end
 end
 
